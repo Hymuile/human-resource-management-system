@@ -3,5 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.hr.mapper.HolidayMapper">
+    <!-- 查询个人假期   -->
+    <select id="getUserHoliday" parameterType="String" resultType="org.hr.model.HolidayFlow">
+        select * from holiday_flow where user_id = #{userId}
+    </select>
 
 </mapper>
