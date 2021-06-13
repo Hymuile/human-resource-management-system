@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hr.mapper.OrgPostMapper">
+    <insert id="addPost" parameterType="org.hr.model.OrgPost">
+      <!-- 新建岗位 -->
+        INSERT INTO hr.org_post (id, name, notes)
+        VALUES (replace(uuid(),'-',''), #{name}, #{notes})
+    </insert>
+    <!--修改岗位 -->
+    <update id="modifyPost" parameterType="org.hr.model.OrgPost">
+        update org_post set name=#{name},notes=#{notes} where id=#{id}
+    </update>
+    <!-- 通过名称查询岗位（模糊） -->
+    <select id="getPostsByName" parameterType="org.hr.modelOv.PostOV" resultType="org.hr.model.OrgPost">
+        select * from org_post
+        <where>
+            <if test="name!=null and name!=''">
+                name like concat(concat('%',#{name}),'%')
+            </if>
+        </where>
+        limit #{current_index},#{page_size}
+    </select>
+    <!-- 通过名称查询岗位数量（模糊）-->
+    <select id="getPostNumByName" parameterType="org.hr.modelOv.PostOV" resultType="Integer">
+        select count(*) num from org_post
+        <where>
+            <if test="name!=null and name!=''">
+                name like concat(concat('%',#{name}),'%')
+            </if>
+        </where>
+    </select>
+    <!-- 通过id删除岗位 -->
+    <delete id="deletePost" parameterType="String">
+        delete from org_post where id=#{id}
+    </delete>
+</mapper>

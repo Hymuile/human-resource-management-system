@@ -1,0 +1,7 @@
+
+f	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è¶ãŠ
+a
+java:S1192"FDefine a constant instead of duplicating this literal "state" 8 times.(ñí‚×úÿÿÿÿ
+f	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è¶ãŠ
+X
+java:S1128"6Remove this unused import 'org.omg.CORBA.OBJ_ADAPTER'.(Çð¯¹øÿÿÿÿ8’»­ÔŸ/

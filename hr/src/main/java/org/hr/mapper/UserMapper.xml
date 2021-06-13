@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hr.mapper.UserMapper">
+
+    <select id="loadUserByUsername" resultType="org.hr.model.User">
+        select * from user where username=#{username}
+    </select>
+
+    <select id="getUserRoleByUid" resultType="org.hr.model.Role">
+        select * from role r,user_role ur where r.id=ur.rid and ur.uid=#{id}
+    </select>
+
+    <!-- 新建用户-->
+    <insert id="addUser" parameterType="org.hr.model.User">
+        INSERT INTO user (id, username, password, enabled, locked)
+        VALUES (replace(uuid(),'-',''), #{username}, #{password}, 1, 0);
+    </insert>
+
+    <!-- 通过用户名查找用户（精确查找） -->
+    <select id="findUserByUsername" parameterType="String" resultType="org.hr.model.User">
+        select * from user where username=#{username}
+    </select>
+
+    <!-- 通过用户名查找用户权限 -->
+    <select id="getUserRoleByUsername" resultType="org.hr.model.Role">
+         select * from role r,user_role ur,`user` u where r.id=ur.rid AND ur.uid=u.id AND u.username=#{username}
+    </select>
+
+    <!-- 重置用户密码 -->
+    <update id="resetPassword" parameterType="org.hr.model.User">
+        update user set password=#{password} where username=#{username}
+    </update>
+    <!-- 删除用户 -->
+    <select id="deleteUser" parameterType="String">
+        delete from user where username=#{username}
+    </select>
+    <!--修改用户密码-->
+    <update id="updateUserPassword" parameterType="org.hr.model.User">
+        update user set password=#{password} where username=#{username}
+    </update>
+</mapper>

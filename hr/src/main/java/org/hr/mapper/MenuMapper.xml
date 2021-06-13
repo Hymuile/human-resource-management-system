@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hr.mapper.MenuMapper">
+    <select id="getMenu_1" resultType="org.hr.model.Menu">
+        SELECT * FROM menu WHERE levels =1
+
+         ORDER BY sort
+    </select>
+    <select id="getMenu_2" parameterType="org.hr.model.Menu" resultType="org.hr.model.Menu">
+        SELECT * FROM menu WHERE levels=2 AND sup_id=#{sup_id}
+        <if test="rights!=null and rights!='' and rights!='/admin'">
+            and rights=#{rights}
+        </if>
+         ORDER BY sort
+    </select>
+</mapper>

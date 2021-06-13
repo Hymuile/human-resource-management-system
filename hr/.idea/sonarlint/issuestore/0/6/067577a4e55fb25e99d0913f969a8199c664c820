@@ -1,0 +1,35 @@
+
+k	java:S117."QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”öÎ³üÿÿÿÿ
+g	java:S117‚"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê£ŒÑ
+p
+java:S1128"URemove this unused import 'org.springframework.web.util.ServletContextPropertyUtils'.(â½¿Íşÿÿÿÿ
+l	java:S117—"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º¹“¶şÿÿÿÿ
+l	java:S117õ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿ã€”ıÿÿÿÿ
+o
+java:S1192Í"SDefine a constant instead of duplicating this literal "å¤„ç†æµç¨‹å¤±è´¥" 3 times.(®×Ÿ×ıÿÿÿÿ
+g	java:S117½"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿­¶º
+l	java:S117Ç"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿ã€”ıÿÿÿÿ
+`	java:S112C"FDefine and throw a dedicated exception instead of using a generic one.(–½¡­ùÿÿÿÿ
+g	java:S117‚"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê£ŒÑ
+l	java:S117â"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿ã€”ıÿÿÿÿ
+a
+java:S1192<"FDefine a constant instead of duplicating this literal "total" 3 times.(Ú®Ñşÿÿÿÿ
+f	java:S117À"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òà‘q
+[	java:S112["FDefine and throw a dedicated exception instead of using a generic one.(æı˜ê
+g	java:S117‚"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê£ŒÑ
+g	java:S117Ù"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Èøœ
+b
+java:S1192%"GDefine a constant instead of duplicating this literal "state" 16 times.(ñí‚×úÿÿÿÿ
+o
+java:S1192Ê"SDefine a constant instead of duplicating this literal "å¤„ç†æµç¨‹æˆåŠŸ" 3 times.(Ôİ»ğúÿÿÿÿ
+n
+java:S3776«"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(™¤ÜŸøÿÿÿÿ
+a	java:S112«"FDefine and throw a dedicated exception instead of using a generic one.(™¤ÜŸøÿÿÿÿ
+k	java:S117."QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”öÎ³üÿÿÿÿ
+l	java:S117—"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º¹“¶şÿÿÿÿ
+f	java:S117î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òà‘q
+k	java:S117."QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”öÎ³üÿÿÿÿ
+f
+java:S1128"QRemove this unused import 'com.fasterxml.jackson.databind.cfg.ContextAttributes'.(€£ìl
+l	java:S117—"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º¹“¶şÿÿÿÿ
+f	java:S117Û"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òà‘q

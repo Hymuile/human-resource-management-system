@@ -1,0 +1,6 @@
+
+W
+java:S1128"ARemove this unused import 'org.apache.ibatis.annotations.Mapper'.(à©•ù
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä’Ã’
+V	java:S125"<This block of commented-out lines of code should be removed.(ƒôêŒùÿÿÿÿ
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û…Ðå

@@ -1,0 +1,40 @@
+
+]
+java:S1126Ú"AReplace this if-then-else statement by a single return statement.(¤¦ß‘üÿÿÿÿ
+U
+java:S1128":Remove this unused import 'java.security.CryptoPrimitive'.(îŒ”ñüÿÿÿÿ
+X
+java:S1128"BRemove this unused import 'javax.servlet.http.HttpServletRequest'.(ø©¹…
+k	java:S117A"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤£®þúÿÿÿÿ
+h	java:S100V"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–²ïÊÿÿÿÿÿ
+V	java:S125?"<This block of commented-out lines of code should be removed.(”ðÖ†ûÿÿÿÿ
+c	java:S100m"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È†¥Æ
+l	java:S117µ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ò±íûÿÿÿÿ
+l	java:S117µ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ò±íûÿÿÿÿ
+f	java:S117m"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È†¥Æ
+D
+java:S1128"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw
+U
+java:S1854d":Remove this useless assignment to local variable "userOv".(š¡Ï‡üÿÿÿÿ
+l	java:S117«"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´ºôýÿÿÿÿ
+b
+java:S11926"GDefine a constant instead of duplicating this literal "state" 24 times.(Þöüùÿÿÿÿ
+k	java:S117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•Àÿøÿÿÿÿ
+g
+java:S1128"LRemove this unused import 'org.springframework.web.multipart.MultipartFile'.(ôŸœžÿÿÿÿÿ
+F
+java:S1481d"+Remove this unused "userOv" local variable.(š¡Ï‡üÿÿÿÿ
+i
+java:S1192x"NDefine a constant instead of duplicating this literal "current_index" 3 times.(¤­Ö¾øÿÿÿÿ
+f	java:S117m"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È†¥Æ
+P
+java:S1128"5Remove this unused import 'org.hr.mapper.UserMapper'.(ÿí°õþÿÿÿÿ
+l	java:S117«"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´ºôýÿÿÿÿ
+F
+java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ
+_
+java:S1192y"JDefine a constant instead of duplicating this literal "page_size" 3 times.(ù¶¹4
+K
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úýÿÿÿÿ
+?
+java:S1128")Remove this unused import 'java.io.File'.(†Ð¥Å

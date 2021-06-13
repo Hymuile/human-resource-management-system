@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hr.mapper.UserInfoMapper">
+    <select id="getUserByUsername" parameterType="String" resultType="org.hr.model.UserInfo">
+        select * from user_info where username =#{username}
+    </select>
+    <insert id="addUserInfo" parameterType="org.hr.model.UserInfo">
+        INSERT INTO hr.user_info (username, phone, address, email, unit, `level`, position, salary, photo)
+        VALUES (#{username}, #{phone}, #{address}, #{email}, #{unit}, #{level}, #{position}, #{salary}, #{photo})
+    </insert>
+    <select id="getUsersByUsername" parameterType="org.hr.modelOv.UserOV" resultType="org.hr.model.UserInfo">
+        select P1.username,P1.phone,P1.address,P1.email,P2.name unit,P3.notes,P4.name position
+        from user_info P1 LEFT JOIN org_unit P2 ON P1.unit=P2.id
+        LEFT JOIN salary P3 ON P1.salary=P3.id
+        LEFT JOIN org_post P4 ON P1.position = P4.id
+        <where>
+            <if test="username != null and username!=''">
+                P1.username like concat(concat('%',#{username}),'%')
+            </if>
+        </where>
+        limit #{currentIndex},#{pageSize}
+    </select>
+    <select id="getUsersNumByUsername" parameterType="org.hr.modelOv.UserOV" resultType="Integer">
+        select count(*) num from user_info
+        <where>
+            <if test="username != null and username!=''">
+                username like concat(concat('%',#{username}),'%')
+            </if>
+        </where>
+    </select>
+    <update id="updateUserInfo" parameterType="org.hr.model.UserInfo">
+        update user_info set phone=#{phone},address=#{address},email=#{email},unit=#{unit},position=#{position},salary=#{salary},level=#{level} where username=#{username}
+    </update>
+    <!-- 更新员工岗位 -->
+    <update id="modifyUserPost" parameterType="org.hr.model.UserInfo">
+        update user_info set position=#{position} where username=#{username}
+    </update>
+    <!-- 查询用户岗位 -->
+    <select id="getUserPostsByUsername" parameterType="org.hr.modelOv.UserPostOV" resultType="org.hr.model.UserPost">
+        SELECT username,position,P2.name pname FROM user_info P1 LEFT JOIN org_post P2 ON P1.position=P2.id
+        <where>
+            <if test="username!=null and username!=''">
+                username=#{username}
+            </if>
+        </where>
+        limit #{current_index},#{page_size}
+    </select>
+    <!-- 查询用户岗位 -->
+    <select id="getUserPostNumByUsername" parameterType="org.hr.modelOv.UserPostOV" resultType="Integer">
+        SELECT count(username) num FROM user_info P1 LEFT JOIN org_post P2 ON P1.position=P2.id
+        <where>
+            <if test="username!=null and username!=''">
+                username=#{username}
+            </if>
+        </where>
+    </select>
+
+    <!-- 查询员工本人岗位 -->
+    <select id="getUserPostByUsername" parameterType="String" resultType="org.hr.model.UserPost">
+        SELECT username,position,P2.name pname FROM user_info P1 LEFT JOIN org_post P2 ON P1.position=P2.id where username=#{username}
+    </select>
+
+    <!-- 删除用户信息 -->
+    <delete id="deleteUserInfo" parameterType="String">
+        delete from user_info where username=#{username}
+    </delete>
+    <!-- 修改本人信息-->
+    <update id="updateUserInfo2" parameterType="org.hr.model.UserInfo">
+        update user_info set phone=#{phone},address=#{address},email=#{email} where username=#{username}
+    </update>
+
+    <!-- 将用户图片地址更新至数据库-->
+    <update id="updateUserPhoto" parameterType="org.hr.model.UserInfo">
+        update user_info set photo=#{photo} where username=#{username}
+    </update>
+
+    <!-- 查询所有员工薪酬（模糊查询）-->
+    <select id="getUsersSalaryByUsername" parameterType="org.hr.modelOv.UserOV" resultType="org.hr.modelOv.UserSalary">
+        SELECT P1.username,P2.id salary_id,P2.salary,P2.notes FROM user_info P1 LEFT JOIN salary P2 ON P1.salary=P2.id
+        <where>
+            <if test="username!=null and username!=''">
+                P1.username like concat(concat('%',#{username}),'%')
+            </if>
+        </where>
+        limit #{currentIndex},#{pageSize}
+    </select>
+
+    <!-- 查询所有员工薪酬数量（模糊查询）-->
+    <select id="getUserSalaryNumByUsername" parameterType="org.hr.modelOv.UserOV" resultType="Integer">
+        SELECT count(P1.username) num FROM user_info P1 LEFT JOIN salary P2 ON P1.salary=P2.id
+        <where>
+            <if test="username!=null and username!=''">
+                P1.username like concat(concat('%',#{username}),'%')
+            </if>
+        </where>
+    </select>
+    <!-- 修改员工薪酬-->
+    <update id="modifyUserSalary" parameterType="org.hr.modelOv.UserSalary">
+        update user_info set salary=#{salary_id} where username=#{username}
+    </update>
+
+    <!--查询本人薪酬-->
+    <select id="getUserSalary" parameterType="String" resultType="org.hr.modelOv.UserSalary">
+        SELECT P1.username,P2.id salary_id,P2.salary,P2.notes FROM user_info P1 LEFT JOIN salary P2 ON P1.salary=P2.id
+        where P1.username=#{username}
+    </select>
+</mapper>
