@@ -95,3 +95,5 @@ X
 (src/main/java/org/hr/model/CertFlow.java,f\a\fabd3befa06bf0ce1af6ee94267917d673eea982
 a
 1src/main/java/org/hr/service/UserRoleService.java,a\e\aedc6b1da56ac67f3054169359a6d2c2895dc0b5
+\
+,src/test/java/org/hr/HrApplicationTests.java,5\2\523ed548b748c325e8bc427b5f2cb2730ee1faf8
