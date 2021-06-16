@@ -2,6 +2,7 @@ package org.hr.service;
 
 
 import org.hr.mapper.SalaryMapper;
+import org.hr.model.OrgPost;
 import org.hr.model.Salary;
 import org.hr.modelOv.SalaryOV;
 import org.springframework.beans.factory.annotation.Autowired;

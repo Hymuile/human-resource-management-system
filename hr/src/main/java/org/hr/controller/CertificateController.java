@@ -18,9 +18,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 证书管理
- */
 @RestController
 public class CertificateController {
     @Autowired
@@ -155,7 +152,7 @@ public class CertificateController {
         userCert.setPage_size(page_size);
         userCert.setCurrent_index(current_index);
         userCert.setCert_name(cert_name);
-
+        System.out.println("cert_name:"+cert_name);
         List<CertFlow> certFlows=certificateService.getProvingCertFlow(userCert);
         Integer total=certificateService.getProvingCertFlowNum(userCert);
         map.put("state",200);

@@ -14,9 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 机构管理
- */
 @RestController
 public class UnitController {
     @Autowired

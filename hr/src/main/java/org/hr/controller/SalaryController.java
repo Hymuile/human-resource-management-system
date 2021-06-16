@@ -1,9 +1,9 @@
 package org.hr.controller;
 
+import org.hr.model.OrgPost;
 import org.hr.model.Salary;
 import org.hr.modelOv.SalaryOV;
 import org.hr.service.SalaryService;
-import org.omg.CORBA.OBJ_ADAPTER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 薪酬管理
- */
 @RestController
 public class SalaryController {
     @Autowired
@@ -34,20 +31,20 @@ public class SalaryController {
 
         return map;
     }
-    /**
-     * 修改薪酬
-     */
-    @PostMapping("admin/modify_salary")
-    public Object modifySalary(@RequestBody Salary salary){
-        Map<String,Object> map = new HashMap<>();
+
+    //修改薪资
+    @PutMapping("/admin/modify_salary")
+    public Object modifyUnit(@RequestBody Salary salary){
+        Map<String,Object> map=new HashMap<>();
         int result = salaryService.modifySalary(salary);
-        if(result == 1){
+        if(result==1){
             map.put("state",200);
-            map.put("msg","修改薪酬成功");
+            map.put("msg","修改岗位成功");
         }else{
             map.put("state",202);
-            map.put("msg","修改薪酬失败");
+            map.put("msg","修改岗失败");
         }
+
         return map;
     }
 
@@ -99,6 +96,4 @@ public class SalaryController {
 
         return map;
     }
-
-
 }

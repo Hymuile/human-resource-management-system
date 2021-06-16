@@ -19,16 +19,12 @@ public class CertificateService {
     @Autowired
     CertificateMapper certificateMapper;
 
-    /**
-     * 查询个人证书（精确查询）
-     */
+    //查询个人证书（精确查询）
     public List<EmployeeCertificate> getUserCert(String user){
         return certificateMapper.getUserCert(user);
     }
 
-    /**
-     * 查询所有人证书（模糊查询）
-     */
+    //查询所有人证书（模糊查询）
     public List<EmployeeCertificate> getUserCerts(UserCert userCert){
         return certificateMapper.getUserCerts(userCert);
     }

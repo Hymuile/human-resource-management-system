@@ -1,6 +1,7 @@
 package org.hr.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.hr.model.OrgPost;
 import org.hr.model.Salary;
 import org.hr.modelOv.SalaryOV;
 

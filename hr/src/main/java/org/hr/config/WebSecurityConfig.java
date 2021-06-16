@@ -63,7 +63,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
                     @Override
                     public void onAuthenticationSuccess(HttpServletRequest req, HttpServletResponse resp, Authentication auth) throws IOException, ServletException {
                         Object principal=auth.getPrincipal();
-
+                        //System.out.println("=====hehre===="+req.getParameter("username"));
                         resp.setContentType("application/json;charset=utf-8");
                         PrintWriter out =resp.getWriter();
                         resp.setStatus(200);
@@ -82,7 +82,8 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
                 // 登录失败后的处理
                 .failureHandler(new AuthenticationFailureHandler() {
                     @Override
-                    public void onAuthenticationFailure(HttpServletRequest req, HttpServletResponse resp, AuthenticationException e) throws IOException {
+                    public void onAuthenticationFailure(HttpServletRequest req, HttpServletResponse resp, AuthenticationException e) throws IOException, ServletException {
+                        //System.out.println("=====hehre===="+req.getParameter("username"));
                         resp.setContentType("application/json;charset=utf-8");
                         PrintWriter out=resp.getWriter();
                         resp.setStatus(401);

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hr.mapper.OrgUnitMapper">
+    <!-- 新建机构 -->
+    <insert id="addOrgUnit" parameterType="org.hr.model.OrgUnit">
+        INSERT INTO hr.org_unit (id, name, address, phone, manager)
+        VALUES (replace(uuid(),'-',''), #{name}, #{address}, #{phone}, #{manager})
+    </insert>
+    <!-- 修改机构 -->
+    <update id="modifyOrgUnit" parameterType="org.hr.model.OrgUnit">
+        update org_unit set name=#{name},address=#{address},phone=#{phone},manager=#{manager}
+        where id=#{id}
+    </update>
+    <!-- 查询机构 -->
+    <select id="getUnitsByName" parameterType="org.hr.modelOv.UnitOV" resultType="org.hr.model.OrgUnit">
+        select * from org_unit
+        <where>
+            <if test="name!=null and name!=''">
+                name like concat(concat('%',#{name}),'%')
+            </if>
+        </where>
+        limit #{current_index},#{page_size}
+    </select>
+
+    <!-- 查询机构数量-->
+    <select id="getUnitsNumByName" parameterType="org.hr.modelOv.UnitOV" resultType="Integer">
+        select count(*) num from org_unit
+        <where>
+            <if test="name!=null and name!=''">
+                name like concat(concat('%',#{name}),'%')
+            </if>
+        </where>
+    </select>
+    <!-- 查询机构（精确查询） -->
+    <select id="getUnitByName" parameterType="String" resultType="org.hr.model.OrgUnit">
+        select * from org_unit where name =#{name}
+    </select>
+    <!-- 删除机构 -->
+    <delete id="deleteUnit" parameterType="String">
+        delete from org_unit where id=#{id}
+    </delete>
+</mapper>

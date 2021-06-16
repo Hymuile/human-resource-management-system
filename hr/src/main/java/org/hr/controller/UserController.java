@@ -28,9 +28,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * 用户管理
- */
 @RestController
 public class UserController {
     @Autowired

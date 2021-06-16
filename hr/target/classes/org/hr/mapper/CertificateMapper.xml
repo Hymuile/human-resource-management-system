@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hr.mapper.CertificateMapper">
+    <!--查询人员证书（精确查询）-->
+    <select id="getUserCert" parameterType="String" resultType="org.hr.model.EmployeeCertificate">
+        SELECT * FROM employee_certificate WHERE user = #{user}
+    </select>
+
+    <!--查询所有人员证书（模糊查询）-->
+    <select id="getUserCerts" parameterType="org.hr.modelOv.UserCert" resultType="org.hr.model.EmployeeCertificate">
+        select * from employee_certificate
+        <where>
+            <if test="username !=null and username != ''">
+                user like concat(concat('%',#{username}),'%')
+            </if>
+            <if test="cert_name!=null and cert_name!=''">
+                and cert_name like concat(concat('%',#{cert_name}),'%')
+            </if>
+        </where>
+        limit #{current_index},#{page_size}
+    </select>
+
+    <!--查询所有人员证书数量（模糊查询）-->
+    <select id="getUserCertNum" parameterType="org.hr.modelOv.UserCert" resultType="Integer">
+        select count(*) num from employee_certificate
+        <where>
+            <if test="username !=null and username != ''">
+                user like concat(concat('%',#{username}),'%')
+            </if>
+            <if test="cert_name!=null and cert_name!=''">
+                and cert_name like concat(concat('%',#{cert_name}),'%')
+            </if>
+        </where>
+    </select>
+
+    <!--修改证书-->
+    <update id="modifyCert" parameterType="org.hr.model.EmployeeCertificate">
+        update employee_certificate set cert_no=#{cert_no},cert_name=#{cert_name},cert_date=#{cert_date},notes=#{notes}
+        where id=#{id}
+    </update>
+
+    <!-- 申请新增证书-->
+    <insert id="addCertFlow" parameterType="org.hr.model.CertFlow">
+        INSERT INTO hr.certificate_flow (id, type, user_name, apply_date, cert_no, cert_name, cert_date, state)
+        VALUES (replace(uuid(),'-',''), #{type},#{user_name}, #{apply_date}, #{cert_no}, #{cert_name}, #{cert_date}, #{state})
+    </insert>
+
+    <!-- 新增证书-->
+    <insert id="addCert" parameterType="org.hr.model.EmployeeCertificate">
+        INSERT INTO hr.employee_certificate (id, `user`, cert_no, cert_name, cert_date)
+        VALUES (replace(uuid(),'-',''), #{user}, #{cert_no}, #{cert_name}, #{cert_date})
+    </insert>
+
+    <!-- 申请修改证书-->
+    <insert id="modifyCertFlow" parameterType="org.hr.model.CertFlow">
+        INSERT INTO hr.certificate_flow (id, type,pre_id, user_name, apply_date, cert_no, cert_name, cert_date, state)
+        VALUES (replace(uuid(),'-',''), #{type}, #{pre_id},#{user_name}, #{apply_date}, #{cert_no}, #{cert_name}, #{cert_date}, #{state})
+    </insert>
+
+
+
+    <!--查询本人申请的所有证书-->
+    <select id="getUserCertFlow" parameterType="org.hr.modelOv.UserCert" resultType="org.hr.model.CertFlow">
+        SELECT * FROM certificate_flow WHERE user_name=#{username}
+        <if test="cert_name != null and cert_name!=''">
+            and cert_name like concat(concat('%',#{cert_name}),'%')
+        </if>
+        limit #{current_index},#{page_size}
+    </select>
+    <!--查询本人申请的所有证书数量-->
+    <select id="getUserCertFlowNum" parameterType="org.hr.modelOv.UserCert" resultType="integer">
+        SELECT count(*) num FROM certificate_flow WHERE user_name=#{username}
+        <if test="cert_name != null and cert_name!=''">
+            and cert_name like concat(concat('%',#{cert_name}),'%')
+        </if>
+    </select>
+    <!--查询待审批的流程-->
+    <select id="getProvingCertFlow" parameterType="org.hr.modelOv.UserCert" resultType="org.hr.model.CertFlow">
+        SELECT * FROM certificate_flow
+        <where>
+            <if test="1==1">
+                state=0
+            </if>
+            <if test="username != null and username != ''">
+                and user_name like concat(concat('%',#{username}),'%')
+            </if>
+            <if test="cert_name!=null and cert_name !=''">
+                and cert_name like concat(concat('%',#{cert_name}),'%')
+            </if>
+        </where>
+        order by apply_date
+        limit #{current_index},#{page_size}
+    </select>
+
+    <!--查询待审批的流程数量-->
+    <select id="getProvingCertFlowNum" parameterType="org.hr.modelOv.UserCert" resultType="Integer">
+        SELECT count(*) num FROM certificate_flow
+        <where>
+            <if test="1==1">
+                state=0
+            </if>
+            <if test="username != null and username != ''">
+                and user_name like concat(concat('%',#{username}),'%')
+            </if>
+            <if test="cert_name!=null and cert_name !=''">
+                and cert_name like concat(concat('%',#{cert_name}),'%')
+            </if>
+        </where>
+    </select>
+
+    <!--通过 id查询证书流程-->
+    <select id="getCertFlowById" parameterType="String" resultType="org.hr.model.CertFlow">
+        SELECT * FROM certificate_flow WHERE id= #{id}
+    </select>
+
+    <!--更新流程状态和审批信息-->
+    <update id="updateCertFlowState" parameterType="org.hr.model.CertFlow">
+        update certificate_flow set state=#{state},approver_id=#{approver_id},approve_date=#{approve_date},approve_result=#{approve_result}
+        where id=#{id}
+    </update>
+
+</mapper>

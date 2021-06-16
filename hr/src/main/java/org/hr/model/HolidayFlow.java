@@ -6,7 +6,9 @@ import java.util.Date;
 
 public class HolidayFlow {
     private String id;
-    private String user_id;
+    private String user_name;
+    private String pre_id;
+    private Integer type;
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date apply_date;
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
@@ -14,10 +16,28 @@ public class HolidayFlow {
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date edate;
     private Integer date_num;
+
+    @Override
+    public String toString() {
+        return "HolidayFlow{" +
+                "id='" + id + '\'' +
+                ", user_name='" + user_name + '\'' +
+                ", type=" + type +
+                ", apply_date=" + apply_date +
+                ", bdate=" + bdate +
+                ", edate=" + edate +
+                ", date_num=" + date_num +
+                ", approver_id='" + approver_id + '\'' +
+                ", approve_date=" + approve_date +
+                ", approve_result=" + approve_result +
+                ", state=" + state +
+                '}';
+    }
+
     private String approver_id;
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date approve_date;
-    private String aprove_result;
+    private Integer approve_result;
     private Integer state;
 
     public String getId() {
@@ -28,12 +48,26 @@ public class HolidayFlow {
         this.id = id;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUser_name(){return user_name;}
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public String getPre_id() {
+        return pre_id;
+    }
+
+    public void setPre_id(String pre_id) {
+        this.pre_id = pre_id;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public Date getApply_date() {
@@ -84,12 +118,12 @@ public class HolidayFlow {
         this.approve_date = approve_date;
     }
 
-    public String getAprove_result() {
-        return aprove_result;
+    public Integer getApprove_result() {
+        return approve_result;
     }
 
-    public void setAprove_result(String aprove_result) {
-        this.aprove_result = aprove_result;
+    public void setApprove_result(Integer approve_result) {
+        this.approve_result = approve_result;
     }
 
     public Integer getState() {

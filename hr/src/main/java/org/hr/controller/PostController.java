@@ -11,9 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 岗位管理
- */
 @RestController
 public class PostController {
     @Autowired
