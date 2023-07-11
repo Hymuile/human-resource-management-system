@@ -1,14 +1,0 @@
-
-c	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤ô¸
-i	java:S116"TRename this field "cert_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûÏÃà
-c	java:S100,"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë™‹
-h	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±â›üÿÿÿÿ
-f	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë™‹
-c	java:S1000"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°À¸
-h	java:S100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍúâŒùÿÿÿÿ
-h	java:S1004"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë‡êÌúÿÿÿÿ
-k	java:S1174"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë‡êÌúÿÿÿÿ
-g	java:S116
-"RRename this field "cert_no" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨Ù“Õ
-n	java:S116"TRename this field "cert_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢‚ÿ¯øÿÿÿÿ
-k	java:S117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍúâŒùÿÿÿÿ

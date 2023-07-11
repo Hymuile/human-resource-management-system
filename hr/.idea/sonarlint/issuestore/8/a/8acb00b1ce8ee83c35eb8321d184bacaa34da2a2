@@ -1,10 +1,0 @@
-
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼‚¬ƒ
-k	java:S117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Óªî×ûÿÿÿÿ
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(˜„‚Ÿúÿÿÿÿ
-r	java:S116"XRename this field "current_index" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶À‘¶ûÿÿÿÿ
-n	java:S116"TRename this field "page_size" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ‘¾ úÿÿÿÿ
-b	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ž—ñ
-c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼‚¬ƒ
-h	java:S100!"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñàÅƒüÿÿÿÿ
-h	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Óªî×ûÿÿÿÿ
