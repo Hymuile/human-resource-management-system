@@ -1,4 +1,8 @@
-# hr_backEnd
+# 人事管理系统
+
+20230711
+最后一次更新，删减并整合github的一些库。
+本项目为纯学术垃圾，仅用来应付20天的实习。
 
 [CSDN准备工作说明](https://blog.csdn.net/nuaa042216/article/details/112504407?utm_medium=distribute.pc_relevant_download.none-task-blog-2~default~BlogCommendFromBaidu~default-2.nonecase&depth_1-utm_source=distribute.pc_relevant_download.none-task-blog-2~default~BlogCommendFromBaidu~default-2.nonecas)
 
